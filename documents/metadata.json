@@ -1,0 +1,20 @@
+{
+    "CASE001_Judgment.pdf": {
+        "case_id": "CASE001",
+        "title": "ABC Ltd vs Income Tax Department",
+        "document_id": "DOC001",
+        "document_type": "Judgment",
+        "year": 2024,
+        "court": "High Court of Rajasthan",
+        "source": "High Court of Rajasthan"
+    },
+    "CASE003_Judgment.pdf": {
+        "case_id": "CASE003",
+        "title": "DEF Industries vs Income Tax Department",
+        "document_id": "DOC003",
+        "document_type": "Judgment",
+        "year": 2022,
+        "court": "Income Tax Appellate Tribunal, Mumbai Bench",
+        "source": "Income Tax Appellate Tribunal, Mumbai Bench"
+    }
+}

@@ -1,0 +1,1778 @@
+[
+  {
+    "model": "minilm",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "chunk_size": 1200,
+    "overlap": 200,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 10.499910599988652,
+    "query_ms": 7.042168750103883,
+    "hit1": 0.625,
+    "hit3": 0.9375,
+    "mrr": 0.7760416666666666,
+    "unfiltered_hit1": 0.5625,
+    "wrong3": 0.25,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5332245732802184
+      },
+      {
+        "id": "Q02",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.6081202395616047
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7550731803752327
+      },
+      {
+        "id": "Q04",
+        "rank": 4,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6769090764025171
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6707637397339958
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6666455811046457
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6825974786728908
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.5404411620728606
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6560259870197345
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 2,
+        "top_score": 0.5178464262155813
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6975899004371429
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5857452034670065
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.49357350087617546
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5698404177219272
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6329745235999324
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.4144186702722916
+      }
+    ],
+    "label": "A"
+  },
+  {
+    "model": "minilm",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "chunk_size": 800,
+    "overlap": 100,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 0.026959599999827333,
+    "query_ms": 4.822134374990128,
+    "hit1": 0.625,
+    "hit3": 0.9375,
+    "mrr": 0.7760416666666666,
+    "unfiltered_hit1": 0.5625,
+    "wrong3": 0.25,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5332245732802184
+      },
+      {
+        "id": "Q02",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.6081202395616047
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7550731803752327
+      },
+      {
+        "id": "Q04",
+        "rank": 4,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6769090764025171
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6707637397339958
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6666455811046457
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6825974786728908
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.5404411620728606
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6560259870197345
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 2,
+        "top_score": 0.5178464262155813
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6975899004371429
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5857452034670065
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.49357350087617546
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5698404177219272
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6329745235999324
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.4144186702722916
+      }
+    ],
+    "label": "B"
+  },
+  {
+    "model": "minilm",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "chunk_size": 500,
+    "overlap": 50,
+    "chunks": 14,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 334.85714285714283,
+    "ingest_seconds": 0.029780799988657236,
+    "query_ms": 4.6648062498206855,
+    "hit1": 0.625,
+    "hit3": 0.875,
+    "mrr": 0.78125,
+    "unfiltered_hit1": 0.625,
+    "wrong3": 0.16666666666666666,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5934120643759258
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6213347486544257
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7457075092742912
+      },
+      {
+        "id": "Q04",
+        "rank": 4,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6769090527926643
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7295033579867054
+      },
+      {
+        "id": "Q06",
+        "rank": 4,
+        "unfiltered_rank": 4,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6228289979204858
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6825974380299501
+      },
+      {
+        "id": "Q08",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6312269665160962
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6616155752739599
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.49827660803622686
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6801844468740607
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5940149894485172
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.48787402158050486
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5727019600323746
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7028418864819126
+      },
+      {
+        "id": "Q16",
+        "rank": 2,
+        "unfiltered_rank": 7,
+        "wrong_case_share": 1.0,
+        "top_page": 1,
+        "top_score": 0.4139509999286757
+      }
+    ],
+    "label": "C"
+  },
+  {
+    "model": "minilm",
+    "model_name": "sentence-transformers/all-MiniLM-L6-v2",
+    "dimensions": 384,
+    "chunk_size": 400,
+    "overlap": 50,
+    "chunks": 15,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 316.1333333333333,
+    "ingest_seconds": 0.029634599995915778,
+    "query_ms": 4.700256250089296,
+    "hit1": 0.6875,
+    "hit3": 0.9375,
+    "mrr": 0.825,
+    "unfiltered_hit1": 0.6875,
+    "wrong3": 0.14583333333333331,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6180941040735766
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6304400668540087
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7334983925987754
+      },
+      {
+        "id": "Q04",
+        "rank": 5,
+        "unfiltered_rank": 6,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6769090575849888
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6989882832044381
+      },
+      {
+        "id": "Q06",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6331057914628757
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6825974449447276
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5404411823460309
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6705144365758101
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.496910135435681
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6693533226104891
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6201807323728804
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.48418659330834196
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.605841200206668
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7647924470362095
+      },
+      {
+        "id": "Q16",
+        "rank": 2,
+        "unfiltered_rank": 9,
+        "wrong_case_share": 1.0,
+        "top_page": 1,
+        "top_score": 0.4156194992508777
+      }
+    ],
+    "label": "D"
+  },
+  {
+    "model": "mpnet",
+    "model_name": "sentence-transformers/all-mpnet-base-v2",
+    "dimensions": 768,
+    "chunk_size": 1200,
+    "overlap": 200,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 11.212410300009651,
+    "query_ms": 10.227868750007474,
+    "hit1": 0.875,
+    "hit3": 1.0,
+    "mrr": 0.9270833333333334,
+    "unfiltered_hit1": 0.8125,
+    "wrong3": 0.16666666666666666,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6066322488188023
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.5586149686314036
+      },
+      {
+        "id": "Q03",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.8153977840592599
+      },
+      {
+        "id": "Q04",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7061298822916802
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6526178449953925
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7111012807442538
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7123382295215207
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5999067856270158
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.7189780229071152
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6296092571650392
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6475088814725714
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5944100819040278
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.45973591975502665
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5398116795841614
+      },
+      {
+        "id": "Q15",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6761000357301434
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.45343944872987074
+      }
+    ],
+    "label": "E"
+  },
+  {
+    "model": "mpnet",
+    "model_name": "sentence-transformers/all-mpnet-base-v2",
+    "dimensions": 768,
+    "chunk_size": 800,
+    "overlap": 100,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 0.06648160000622738,
+    "query_ms": 10.246331250073126,
+    "hit1": 0.875,
+    "hit3": 1.0,
+    "mrr": 0.9270833333333334,
+    "unfiltered_hit1": 0.8125,
+    "wrong3": 0.16666666666666666,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6066322488188023
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.5586149686314036
+      },
+      {
+        "id": "Q03",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.8153977840592599
+      },
+      {
+        "id": "Q04",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7061298822916802
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6526178449953925
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7111012807442538
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7123382295215207
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5999067856270158
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.7189780229071152
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6296092571650392
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6475088814725714
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.5944100819040278
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.45973591975502665
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5398116795841614
+      },
+      {
+        "id": "Q15",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6761000357301434
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.45343944872987074
+      }
+    ],
+    "label": "F"
+  },
+  {
+    "model": "mpnet",
+    "model_name": "sentence-transformers/all-mpnet-base-v2",
+    "dimensions": 768,
+    "chunk_size": 500,
+    "overlap": 50,
+    "chunks": 14,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 334.85714285714283,
+    "ingest_seconds": 0.07366589999583084,
+    "query_ms": 9.862249999969208,
+    "hit1": 0.6875,
+    "hit3": 1.0,
+    "mrr": 0.8229166666666666,
+    "unfiltered_hit1": 0.6875,
+    "wrong3": 0.14583333333333331,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6474915067897522
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6390251936206571
+      },
+      {
+        "id": "Q03",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.8226381211492848
+      },
+      {
+        "id": "Q04",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7061299096750246
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6741761105446742
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7242832617875401
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7123382984529165
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.5999068669058973
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.7350118902820328
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.609237022675609
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6511906908051522
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6217700527892309
+      },
+      {
+        "id": "Q13",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.48922671383268235
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.5447533717294789
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7851554939143548
+      },
+      {
+        "id": "Q16",
+        "rank": 2,
+        "unfiltered_rank": 7,
+        "wrong_case_share": 1.0,
+        "top_page": 1,
+        "top_score": 0.4623293041599135
+      }
+    ],
+    "label": "G"
+  },
+  {
+    "model": "mpnet",
+    "model_name": "sentence-transformers/all-mpnet-base-v2",
+    "dimensions": 768,
+    "chunk_size": 400,
+    "overlap": 50,
+    "chunks": 15,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 316.1333333333333,
+    "ingest_seconds": 0.06790100000216626,
+    "query_ms": 10.405031250229513,
+    "hit1": 0.625,
+    "hit3": 1.0,
+    "mrr": 0.8125,
+    "unfiltered_hit1": 0.625,
+    "wrong3": 0.14583333333333331,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.667491181349019
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6280069507039098
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.8117774328469516
+      },
+      {
+        "id": "Q04",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7061299164615482
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6706034542690386
+      },
+      {
+        "id": "Q06",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7192432211494157
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7123382932214727
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.599906870061251
+      },
+      {
+        "id": "Q09",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.7334951675142228
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6254844651153778
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6597169678541623
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6252697241929819
+      },
+      {
+        "id": "Q13",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 1,
+        "top_score": 0.5089136744226352
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.587684941904709
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7968227433549067
+      },
+      {
+        "id": "Q16",
+        "rank": 2,
+        "unfiltered_rank": 8,
+        "wrong_case_share": 1.0,
+        "top_page": 1,
+        "top_score": 0.4582106384443513
+      }
+    ],
+    "label": "H"
+  },
+  {
+    "model": "bge-base",
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "dimensions": 768,
+    "chunk_size": 1200,
+    "overlap": 200,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 10.00587509998877,
+    "query_ms": 7.63743749985224,
+    "hit1": 0.6875,
+    "hit3": 0.9375,
+    "mrr": 0.828125,
+    "unfiltered_hit1": 0.625,
+    "wrong3": 0.1875,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6546245575605318
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6248122442366497
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.793488467578193
+      },
+      {
+        "id": "Q04",
+        "rank": 4,
+        "unfiltered_rank": 4,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.695072261628815
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7427127020486831
+      },
+      {
+        "id": "Q06",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6953915470775933
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.7294798264526187
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6050446408909409
+      },
+      {
+        "id": "Q09",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6673628349716396
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.647866454318871
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 1,
+        "top_score": 0.7219337619341212
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6918243858669034
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.7325716213124005
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.639804710753967
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7216231110332887
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 2,
+        "top_score": 0.5660097740442988
+      }
+    ],
+    "label": "I"
+  },
+  {
+    "model": "bge-base",
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "dimensions": 768,
+    "chunk_size": 800,
+    "overlap": 100,
+    "chunks": 8,
+    "tiny_chunks": 0,
+    "avg_chunk_chars": 551.375,
+    "ingest_seconds": 0.05330359999788925,
+    "query_ms": 7.3554281248107145,
+    "hit1": 0.6875,
+    "hit3": 0.9375,
+    "mrr": 0.828125,
+    "unfiltered_hit1": 0.625,
+    "wrong3": 0.1875,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6546245575605318
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6248122442366497
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.793488467578193
+      },
+      {
+        "id": "Q04",
+        "rank": 4,
+        "unfiltered_rank": 4,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.695072261628815
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7427127020486831
+      },
+      {
+        "id": "Q06",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6953915470775933
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.7294798264526187
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6050446408909409
+      },
+      {
+        "id": "Q09",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6673628349716396
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.647866454318871
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 1,
+        "top_score": 0.7219337619341212
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6918243858669034
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.7325716213124005
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.639804710753967
+      },
+      {
+        "id": "Q15",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7216231110332887
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 2,
+        "top_score": 0.5660097740442988
+      }
+    ],
+    "label": "J"
+  },
+  {
+    "model": "bge-base",
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "dimensions": 768,
+    "chunk_size": 500,
+    "overlap": 50,
+    "chunks": 14,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 334.85714285714283,
+    "ingest_seconds": 0.06288280000444502,
+    "query_ms": 7.474971875126357,
+    "hit1": 0.8125,
+    "hit3": 0.9375,
+    "mrr": 0.8770833333333333,
+    "unfiltered_hit1": 0.6875,
+    "wrong3": 0.25,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6750233286773586
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6409572972594118
+      },
+      {
+        "id": "Q03",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.7838443557606647
+      },
+      {
+        "id": "Q04",
+        "rank": 5,
+        "unfiltered_rank": 6,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6950721612341757
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7305223358254871
+      },
+      {
+        "id": "Q06",
+        "rank": 3,
+        "unfiltered_rank": 4,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6327019618795073
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.7294797268494977
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6050445957963986
+      },
+      {
+        "id": "Q09",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6842375970686196
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 2,
+        "top_score": 0.6341804928537907
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7200672473097055
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6727663285997598
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 3,
+        "top_score": 0.7327366232401127
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.644461042770867
+      },
+      {
+        "id": "Q15",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7049320807397208
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 4,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.5585484622344952
+      }
+    ],
+    "label": "K"
+  },
+  {
+    "model": "bge-base",
+    "model_name": "BAAI/bge-base-en-v1.5",
+    "dimensions": 768,
+    "chunk_size": 400,
+    "overlap": 50,
+    "chunks": 15,
+    "tiny_chunks": 1,
+    "avg_chunk_chars": 316.1333333333333,
+    "ingest_seconds": 0.0583652999921469,
+    "query_ms": 7.695043749663455,
+    "hit1": 0.6875,
+    "hit3": 0.9375,
+    "mrr": 0.8145833333333333,
+    "unfiltered_hit1": 0.5625,
+    "wrong3": 0.16666666666666666,
+    "queries": [
+      {
+        "id": "Q01",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6894782515865331
+      },
+      {
+        "id": "Q02",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6445636360377629
+      },
+      {
+        "id": "Q03",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7804400858034062
+      },
+      {
+        "id": "Q04",
+        "rank": 5,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.6950722562426842
+      },
+      {
+        "id": "Q05",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.7310931364795977
+      },
+      {
+        "id": "Q06",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6611348058306111
+      },
+      {
+        "id": "Q07",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 4,
+        "top_score": 0.7294798168459753
+      },
+      {
+        "id": "Q08",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 4,
+        "top_score": 0.6050446287446808
+      },
+      {
+        "id": "Q09",
+        "rank": 2,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.6815272299033438
+      },
+      {
+        "id": "Q10",
+        "rank": 1,
+        "unfiltered_rank": 2,
+        "wrong_case_share": 0.3333333333333333,
+        "top_page": 2,
+        "top_score": 0.6434253819753173
+      },
+      {
+        "id": "Q11",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7128290743278666
+      },
+      {
+        "id": "Q12",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 2,
+        "top_score": 0.6483883544614797
+      },
+      {
+        "id": "Q13",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.0,
+        "top_page": 3,
+        "top_score": 0.6975844676285368
+      },
+      {
+        "id": "Q14",
+        "rank": 1,
+        "unfiltered_rank": 1,
+        "wrong_case_share": 0.6666666666666666,
+        "top_page": 3,
+        "top_score": 0.6720858892359576
+      },
+      {
+        "id": "Q15",
+        "rank": 3,
+        "unfiltered_rank": 3,
+        "wrong_case_share": 0.0,
+        "top_page": 1,
+        "top_score": 0.7121164531716957
+      },
+      {
+        "id": "Q16",
+        "rank": 1,
+        "unfiltered_rank": 5,
+        "wrong_case_share": 1.0,
+        "top_page": 2,
+        "top_score": 0.544556938077754
+      }
+    ],
+    "label": "L"
+  }
+]

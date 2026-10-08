@@ -1,485 +1,385 @@
-import os
+"""
+Command-line entry point for the embedding layer.
+
+The actual logic lives in embedding/store.py. Chunks and their
+embeddings are stored in Neo4j, next to the knowledge graph.
+
+Examples (PowerShell; NEO4J_PASSWORD is read from the .env file):
+
+    # Ingest documents/ with the baseline model and settings
+    python embedding_layer.py ingest
+
+    # Try a larger model with smaller chunks (new vector size,
+    # so the index must be recreated)
+    python embedding_layer.py ingest --model bge-base --chunk-size 500 --overlap 50 --recreate
+
+    # Search (same model as the ingest)
+    python embedding_layer.py search "What evidence did ABC Ltd provide?"
+
+    # Search only within one case
+    python embedding_layer.py search "court reasoning" --case-id CASE001
+
+    # Find the vector dimension / chunk size with the highest
+    # similarity for a query (in memory, does not touch Neo4j)
+    python embedding_layer.py compare "What evidence did ABC Ltd provide?"
+"""
+
+import argparse
 from pathlib import Path
 
-from pypdf import PdfReader
+import numpy as np
 
-from sentence_transformers import SentenceTransformer
-
-from qdrant_client import QdrantClient
-from qdrant_client.models import (
-    Distance,
-    PointStruct,
-    VectorParams
+from embedding.store import (
+    DOCUMENTS_DIR,
+    MODEL_PRESETS,
+    config_from_preset,
+    count_chunks,
+    document_metadata,
+    embed_passages,
+    embed_query,
+    extract_pdf_chunks,
+    get_model,
+    ingest_documents,
+    load_document_metadata,
+    passage_text,
+    semantic_search
 )
+from graph_layer import get_driver
+
+
+# Settings tried by the compare command
+COMPARE_MODELS = list(MODEL_PRESETS)
+
+COMPARE_CHUNKS = ["1200:200", "600:100", "300:50"]
 
 
 # ============================================================
-# CONFIGURATION
+# ARGUMENTS
 # ============================================================
 
-QDRANT_URL = "http://127.0.0.1:6333"
+def parse_args():
 
-COLLECTION_NAME = "litigation_documents"
-
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
-
-VECTOR_SIZE = 384
-
-# Number of characters in each text chunk
-CHUNK_SIZE = 200
-
-# Number of characters repeated between consecutive chunks
-CHUNK_OVERLAP = 20
-
-# Folder containing PDF documents
-DOCUMENTS_DIR = Path("documents")
-
-
-# ============================================================
-# CONNECT TO QDRANT
-# ============================================================
-
-print("\nConnecting to Qdrant...")
-
-client = QdrantClient(
-    url=QDRANT_URL,
-    timeout=30,
-    check_compatibility=False
-)
-
-print("Qdrant connection successful.")
-
-
-# ============================================================
-# LOAD EMBEDDING MODEL
-# ============================================================
-
-print("\nLoading embedding model...")
-
-model = SentenceTransformer(
-    MODEL_NAME,
-    device="cpu"
-)
-
-print("Embedding model loaded.")
-print("Embedding dimensions:", model.get_embedding_dimension())
-
-
-# ============================================================
-# CREATE / RESET QDRANT COLLECTION
-# ============================================================
-
-print("\nPreparing Qdrant collection...")
-
-existing_collections = [
-    collection.name
-    for collection in client.get_collections().collections
-]
-
-if COLLECTION_NAME in existing_collections:
-
-    print(
-        f"Deleting existing collection: "
-        f"{COLLECTION_NAME}"
+    parser = argparse.ArgumentParser(
+        description="Litigation document embedding layer"
     )
 
-    client.delete_collection(
-        collection_name=COLLECTION_NAME
-    )
+    common = argparse.ArgumentParser(add_help=False)
 
-    print("Old collection deleted.")
-
-
-print(
-    f"Creating collection: "
-    f"{COLLECTION_NAME}"
-)
-
-client.create_collection(
-    collection_name=COLLECTION_NAME,
-    vectors_config=VectorParams(
-        size=VECTOR_SIZE,
-        distance=Distance.COSINE
-    )
-)
-
-print("Collection created.")
-
-
-# ============================================================
-# FIND PDF DOCUMENTS
-# ============================================================
-
-if not DOCUMENTS_DIR.exists():
-
-    print(
-        f"\nERROR: Documents folder does not exist: "
-        f"{DOCUMENTS_DIR.resolve()}"
-    )
-
-    raise SystemExit(1)
-
-
-pdf_files = sorted(DOCUMENTS_DIR.glob("*.pdf"))
-
-if not pdf_files:
-
-    print(
-        f"\nERROR: No PDF files found in "
-        f"{DOCUMENTS_DIR.resolve()}"
-    )
-
-    raise SystemExit(1)
-
-
-print("\nPDF documents found:")
-
-for pdf_file in pdf_files:
-    print("-", pdf_file.name)
-
-
-# ============================================================
-# TEXT CHUNKING FUNCTION
-# ============================================================
-
-def create_chunks(text, chunk_size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
-    """
-    Split text into overlapping chunks.
-
-    Example:
-
-        Chunk 1: characters 0 - 1200
-        Chunk 2: characters 1000 - 2200
-        Chunk 3: characters 2000 - 3200
-
-    The overlap helps preserve context between chunks.
-    """
-
-    if not text:
-        return []
-
-    if overlap >= chunk_size:
-        raise ValueError(
-            "CHUNK_OVERLAP must be smaller than CHUNK_SIZE."
+    common.add_argument(
+        "--model",
+        default="bge-small",
+        help=(
+            f"Preset ({', '.join(MODEL_PRESETS)}) or any "
+            f"sentence-transformers model name. Default: bge-small"
         )
+    )
+
+    common.add_argument("--chunk-size", type=int)
+    common.add_argument("--overlap", type=int)
+
+    commands = parser.add_subparsers(dest="command", required=True)
+
+    ingest = commands.add_parser(
+        "ingest",
+        parents=[common],
+        help="Embed PDFs and store the chunks in Neo4j"
+    )
+
+    ingest.add_argument("--documents-dir", default=str(DOCUMENTS_DIR))
+
+    ingest.add_argument(
+        "--recreate",
+        action="store_true",
+        help="Drop the vector index and all embedded chunks first"
+    )
+
+    ingest.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-embed documents even if unchanged"
+    )
+
+    search = commands.add_parser(
+        "search",
+        parents=[common],
+        help="Semantic search over ingested chunks"
+    )
+
+    search.add_argument(
+        "query",
+        nargs="?",
+        help="Query text. Prompted for if omitted"
+    )
+
+    search.add_argument("--case-id")
+    search.add_argument("--document-id")
+    search.add_argument("--limit", type=int, default=5)
+
+    compare = commands.add_parser(
+        "compare",
+        help=(
+            "Try several models (vector dimensions) and chunk sizes "
+            "and show the top similarity score for each"
+        )
+    )
+
+    compare.add_argument(
+        "query",
+        nargs="?",
+        help="Query text. Prompted for if omitted"
+    )
+
+    compare.add_argument(
+        "--models",
+        nargs="+",
+        default=COMPARE_MODELS,
+        help=f"Default: {' '.join(COMPARE_MODELS)}"
+    )
+
+    compare.add_argument(
+        "--chunks",
+        nargs="+",
+        default=COMPARE_CHUNKS,
+        help=f"SIZE:OVERLAP values. Default: {' '.join(COMPARE_CHUNKS)}"
+    )
+
+    compare.add_argument("--case-id")
+    compare.add_argument("--documents-dir", default=str(DOCUMENTS_DIR))
+
+    return parser.parse_args()
+
+
+# ============================================================
+# COMMANDS
+# ============================================================
+
+def run_ingest(args, driver, config):
+
+    summary = ingest_documents(
+        driver,
+        config,
+        documents_dir=args.documents_dir,
+        recreate=args.recreate,
+        force=args.force
+    )
+
+    print(
+        f"\nDocuments: {summary['documents']} | "
+        f"chunks written: {summary['written']} | "
+        f"skipped: {summary['skipped']} | "
+        f"chunks in Neo4j: {count_chunks(driver, config)}"
+    )
+
+
+def run_search(args, driver, config):
+
+    query = args.query or input(
+        "\nEnter your litigation query: "
+    ).strip()
+
+    if not query:
+        print("No query entered.")
+        return
+
+    results = semantic_search(
+        driver,
+        config,
+        query,
+        limit=args.limit,
+        case_id=args.case_id,
+        document_id=args.document_id
+    )
+
+    print("\nTop matching results")
+    print("====================")
+
+    if not results:
+        print("No results found.")
+        return
+
+    for index, result in enumerate(results, start=1):
+
+        print(f"\nResult {index}")
+        print("--------------------")
+        print(f"Similarity Score: {result['score']:.4f}")
+        print(f"Case: {result['case_id']}")
+        print(f"Document: {result['document_id']}")
+        print(
+            f"Page: {result['page_number']} | "
+            f"Chunk: {result['chunk_number']} | "
+            f"Section: {result['section']}"
+        )
+        print(f"Text:\n{result['text']}")
+
+
+def load_chunks(config, documents_dir, case_id=None):
+    """
+    Chunks of every PDF (optionally one case) with the text that
+    gets embedded, without storing anything.
+    """
+
+    all_metadata = load_document_metadata(documents_dir)
 
     chunks = []
 
-    start = 0
+    for pdf_path in sorted(documents_dir.glob("*.pdf")):
 
-    text_length = len(text)
+        metadata = document_metadata(pdf_path, all_metadata)
 
-    while start < text_length:
-
-        end = min(
-            start + chunk_size,
-            text_length
-        )
-
-        chunk = text[start:end].strip()
-
-        if chunk:
-            chunks.append(chunk)
-
-        if end >= text_length:
-            break
-
-        start = end - overlap
-
-    return chunks
-
-
-# ============================================================
-# EXTRACT PDF TEXT
-# ============================================================
-
-def extract_pdf_chunks(pdf_path):
-    """
-    Extract text from every PDF page and create chunks.
-
-    Each chunk keeps its page number.
-    """
-
-    print(f"\nReading PDF: {pdf_path.name}")
-
-    reader = PdfReader(str(pdf_path))
-
-    print(f"Number of pages: {len(reader.pages)}")
-
-    chunks = []
-
-    for page_number, page in enumerate(
-        reader.pages,
-        start=1
-    ):
-
-        page_text = page.extract_text() or ""
-
-        page_text = page_text.strip()
-
-        if not page_text:
-
-            print(
-                f"Page {page_number}: "
-                f"No extractable text"
-            )
-
+        if case_id and metadata["case_id"] != case_id:
             continue
 
-        page_chunks = create_chunks(page_text)
-
-        print(
-            f"Page {page_number}: "
-            f"{len(page_chunks)} chunk(s)"
-        )
-
-        for chunk_number, chunk_text in enumerate(
-            page_chunks,
-            start=1
-        ):
-
+        for chunk in extract_pdf_chunks(pdf_path, config):
             chunks.append(
                 {
-                    "page_number": page_number,
-                    "chunk_number": chunk_number,
-                    "text": chunk_text
+                    **chunk,
+                    "case_id": metadata["case_id"],
+                    "embedded_text": passage_text(metadata, chunk)
                 }
             )
 
     return chunks
 
 
-# ============================================================
-# PROCESS DOCUMENTS
-# ============================================================
+def run_compare(args):
+    """
+    For each model x chunk setting: chunk and embed the PDFs in
+    memory, run the query and report the top result.
+    """
 
-all_chunks = []
+    query = args.query or input(
+        "\nEnter your litigation query: "
+    ).strip()
 
-print("\nExtracting text from PDFs...")
+    if not query:
+        print("No query entered.")
+        return
 
-for pdf_path in pdf_files:
+    documents_dir = Path(args.documents_dir)
 
-    document_id = pdf_path.stem
+    rows = []
 
-    chunks = extract_pdf_chunks(pdf_path)
+    for model in args.models:
 
-    for chunk in chunks:
+        for setting in args.chunks:
 
-        chunk["document_id"] = document_id
-        chunk["file_name"] = pdf_path.name
+            chunk_size, overlap = (
+                int(value) for value in setting.split(":")
+            )
 
-        all_chunks.append(chunk)
+            config = config_from_preset(
+                model,
+                chunk_size=chunk_size,
+                chunk_overlap=overlap
+            )
 
+            print(f"Testing {model} {chunk_size}/{overlap} ...")
 
-if not all_chunks:
+            chunks = load_chunks(config, documents_dir, args.case_id)
+
+            if not chunks:
+                continue
+
+            vectors = np.array(
+                embed_passages(
+                    config,
+                    [chunk["embedded_text"] for chunk in chunks]
+                )
+            )
+
+            # Vectors are normalized, so the dot product is the
+            # cosine similarity
+            scores = vectors @ np.array(embed_query(config, query))
+
+            order = np.argsort(scores)[::-1]
+
+            best = scores[order[0]]
+
+            top = chunks[order[0]]
+
+            rows.append(
+                {
+                    "model": model,
+                    "dims": get_model(
+                        config.model_name
+                    ).get_embedding_dimension(),
+                    "chunk": f"{chunk_size}/{overlap}",
+                    "chunks": len(chunks),
+                    "score": best,
+                    # How far the best chunk is ahead of the next one
+                    "margin": (
+                        best - scores[order[1]]
+                        if len(chunks) > 1 else 0.0
+                    ),
+                    "where": (
+                        f"{top['case_id']} p{top['page_number']} "
+                        f"{top['section']}"
+                    )
+                }
+            )
+
+    rows.sort(key=lambda row: row["score"], reverse=True)
+
+    print(f"\nQuery: {query}\n")
 
     print(
-        "\nERROR: No text could be extracted "
-        "from the PDF documents."
+        f"{'Model':<10} {'Dims':>5} {'Chunk':>9} {'Chunks':>6} "
+        f"{'Score':>6} {'Margin':>6}  Top result"
+    )
+
+    print("-" * 90)
+
+    for row in rows:
+        print(
+            f"{row['model']:<10} {row['dims']:>5} {row['chunk']:>9} "
+            f"{row['chunks']:>6} {row['score']:>6.3f} "
+            f"{row['margin']:>6.3f}  {row['where']}"
+        )
+
+    print(
+        "\nScore  = cosine similarity of the best chunk"
+        "\nMargin = lead over the 2nd-best chunk (larger = clearer match)"
+        "\nCheck that 'Top result' is the page you expected."
+    )
+
+
+# ============================================================
+# MAIN
+# ============================================================
+
+def main():
+
+    args = parse_args()
+
+    if args.command == "compare":
+        run_compare(args)
+        return
+
+    config = config_from_preset(
+        args.model,
+        chunk_size=args.chunk_size,
+        chunk_overlap=args.overlap
     )
 
     print(
-        "If your PDF contains scanned images rather than "
-        "selectable text, OCR will be required."
+        f"Model: {config.model_name} | "
+        f"chunk size: {config.chunk_size} | "
+        f"overlap: {config.chunk_overlap}"
     )
 
-    raise SystemExit(1)
+    driver = get_driver()
+
+    try:
+
+        if args.command == "ingest":
+            run_ingest(args, driver, config)
+
+        else:
+            run_search(args, driver, config)
+
+    finally:
+        driver.close()
 
 
-print(
-    f"\nTotal chunks extracted: "
-    f"{len(all_chunks)}"
-)
-
-
-# ============================================================
-# GENERATE EMBEDDINGS
-# ============================================================
-
-print("\nGenerating embeddings...")
-
-points = []
-
-for index, chunk in enumerate(
-    all_chunks,
-    start=1
-):
-
-    print(
-        f"Embedding chunk {index}/"
-        f"{len(all_chunks)}..."
-    )
-
-    embedding = model.encode(
-        chunk["text"],
-        convert_to_numpy=True
-    ).tolist()
-
-    # Use a deterministic integer ID for this run.
-    point_id = index
-
-    point = PointStruct(
-        id=point_id,
-
-        vector=embedding,
-
-        payload={
-            "text": chunk["text"],
-            "document_id": chunk["document_id"],
-            "file_name": chunk["file_name"],
-            "page_number": chunk["page_number"],
-            "chunk_number": chunk["chunk_number"]
-        }
-    )
-
-    points.append(point)
-
-
-# ============================================================
-# STORE EMBEDDINGS IN QDRANT
-# ============================================================
-
-print("\nUploading embeddings to Qdrant...")
-
-client.upsert(
-    collection_name=COLLECTION_NAME,
-    points=points
-)
-
-print(
-    f"Successfully uploaded "
-    f"{len(points)} vector(s)."
-)
-
-
-# ============================================================
-# VERIFY COLLECTION
-# ============================================================
-
-collection_info = client.get_collection(
-    COLLECTION_NAME
-)
-
-print("\nQdrant collection status")
-print("========================")
-
-print(
-    "Collection:",
-    COLLECTION_NAME
-)
-
-print(
-    "Points:",
-    collection_info.points_count
-)
-
-print(
-    "Status:",
-    collection_info.status
-)
-
-
-# ============================================================
-# SEMANTIC SEARCH
-# ============================================================
-
-def semantic_search(query, limit=5):
-
-    print("\nGenerating query embedding...")
-
-    query_vector = model.encode(
-        query,
-        convert_to_numpy=True
-    ).tolist()
-
-    print("Searching Qdrant...")
-
-    results = client.query_points(
-        collection_name=COLLECTION_NAME,
-        query=query_vector,
-        limit=limit
-    ).points
-
-    return results
-
-
-# ============================================================
-# USER QUERY
-# ============================================================
-
-query = input(
-    "\nEnter your litigation query: "
-).strip()
-
-
-if not query:
-
-    print("\nNo query entered.")
-
-    raise SystemExit(0)
-
-
-# ============================================================
-# SEARCH
-# ============================================================
-
-results = semantic_search(
-    query,
-    limit=5
-)
-
-
-# ============================================================
-# DISPLAY RESULTS
-# ============================================================
-
-print("\nTop matching results")
-print("====================")
-
-
-if not results:
-
-    print("No results found.")
-
-else:
-
-    for index, result in enumerate(
-        results,
-        start=1
-    ):
-
-        payload = result.payload
-
-        print(
-            f"\nResult {index}"
-        )
-
-        print("--------------------")
-
-        print(
-            f"Similarity Score: "
-            f"{result.score:.4f}"
-        )
-
-        print(
-            f"Document: "
-            f"{payload['file_name']}"
-        )
-
-        print(
-            f"Page: "
-            f"{payload['page_number']}"
-        )
-
-        print(
-            f"Chunk: "
-            f"{payload['chunk_number']}"
-        )
-
-        print(
-            f"Text:\n"
-            f"{payload['text']}"
-        )
-
-
-print("\nEmbedding layer completed.")
+if __name__ == "__main__":
+    main()

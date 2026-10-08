@@ -1,0 +1,13 @@
+# Python 3.12. Install with: pip install -r requirements.txt
+neo4j>=6.3
+langgraph>=1.2
+openai>=3.26
+sentence-transformers>=6.0
+transformers>=5.17
+huggingface_hub>=1.32
+pypdf>=6.19
+numpy>=2.5
+rich>=15.0
+
+# Only for evaluation/make_case003_pdf.py
+reportlab>=5.0

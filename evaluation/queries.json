@@ -1,0 +1,19 @@
+[
+    {"id": "Q01", "query": "What evidence did ABC Ltd provide?", "case_id": "CASE001", "document_id": "DOC001", "pages": [2], "type": "direct"},
+    {"id": "Q02", "query": "What documents were produced to justify the claimed costs?", "case_id": "CASE001", "document_id": "DOC001", "pages": [2], "type": "paraphrase"},
+    {"id": "Q03", "query": "What did the Income Tax Department argue about ABC Ltd's business expenses?", "case_id": "CASE001", "document_id": "DOC001", "pages": [2], "type": "direct"},
+    {"id": "Q04", "query": "What did the court examine before deciding ABC Ltd's appeal?", "case_id": "CASE001", "document_id": "DOC001", "pages": [3], "type": "direct"},
+    {"id": "Q05", "query": "Which legal provision decides whether business expenditure is deductible?", "case_id": "CASE001", "document_id": "DOC001", "pages": [1, 3], "type": "generic"},
+    {"id": "Q06", "query": "Why was the company's expenditure disallowed at assessment?", "case_id": "CASE001", "document_id": "DOC001", "pages": [1], "type": "generic"},
+    {"id": "Q07", "query": "What was the outcome of ABC Ltd's appeal and which court decided it?", "case_id": "CASE001", "document_id": "DOC001", "pages": [4], "type": "direct"},
+    {"id": "Q08", "query": "Who won the dispute and when was the ruling issued?", "case_id": "CASE001", "document_id": "DOC001", "pages": [4], "type": "generic"},
+
+    {"id": "Q09", "query": "What records did DEF Industries submit to prove the machinery was used?", "case_id": "CASE003", "document_id": "DOC003", "pages": [2], "type": "direct"},
+    {"id": "Q10", "query": "What proof did the taxpayer offer that the equipment was operating?", "case_id": "CASE003", "document_id": "DOC003", "pages": [2], "type": "paraphrase"},
+    {"id": "Q11", "query": "Why did the Assessing Officer reduce DEF Industries' depreciation claim?", "case_id": "CASE003", "document_id": "DOC003", "pages": [1], "type": "direct"},
+    {"id": "Q12", "query": "What did the Revenue say about trial runs of the machines?", "case_id": "CASE003", "document_id": "DOC003", "pages": [2], "type": "direct"},
+    {"id": "Q13", "query": "When is an asset considered put to use under Section 32?", "case_id": "CASE003", "document_id": "DOC003", "pages": [3], "type": "direct"},
+    {"id": "Q14", "query": "What did the tribunal conclude from the electricity bills?", "case_id": "CASE003", "document_id": "DOC003", "pages": [3], "type": "paraphrase"},
+    {"id": "Q15", "query": "Was depreciation allowed on the second weaving machine?", "case_id": "CASE003", "document_id": "DOC003", "pages": [4], "type": "direct"},
+    {"id": "Q16", "query": "What evidence did the taxpayer produce and what did the court examine?", "case_id": "CASE003", "document_id": "DOC003", "pages": [2, 3], "type": "generic"}
+]
